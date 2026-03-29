@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#7fd3e6" />
+  <title>グアム旅行しおり | 4/19–4/21</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f4fbff;
+      --bg-2:#fff8ef;
+      --card:#ffffff;
+      --ink:#23404a;
+      --muted:#5f7e88;
+      --accent:#37b7d6;
+      --accent-2:#8be0ef;
+      --accent-3:#ffd9a8;
+      --line:rgba(20,60,80,.08);
+      --shadow:0 12px 30px rgba(55,183,214,.12);
+      --radius:22px;
+      --maxw:560px;
+    }
+
+    *{box-sizing:border-box;min-width:0}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg) 0%, #eef9ff 42%, var(--bg-2) 100%);color:var(--ink)}
+    body{
+      font-family:"Noto Sans JP","Outfit",system-ui,-apple-system,sans-serif;
+      line-height:1.8;
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+
+    .frame{
+      margin:auto;
+      min-height:100svh;
+      max-width:var(--maxw);
+      background:linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.9));
+      border-left:1px solid var(--line);
+      border-right:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .top{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.72);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+      padding:env(safe-area-inset-top) 12px 10px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      font-size:1.15rem;
+      color:#1b7ea8;
+      padding:4px 6px 8px;
+    }
+
+    .tabs{
+      display:flex;
+      gap:8px;
+      overflow:auto;
+      padding:0 4px;
+      scrollbar-width:none;
+    }
+    .tabs::-webkit-scrollbar{display:none}
+    .tabs a{
+      text-decoration:none;
+      white-space:nowrap;
+      padding:9px 13px;
+      border-radius:999px;
+      border:1px solid #d8eef4;
+      background:#fff;
+      color:#2384a5;
+      font-size:.93rem;
+      font-weight:700;
+      box-shadow:0 4px 12px rgba(55,183,214,.06);
+    }
+
+    section{padding:16px 16px 0}
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.75), transparent 30%),
+        linear-gradient(145deg, #8be0ef 0%, #5fcfe4 38%, #ffd9a8 100%);
+      color:#fff;
+      padding:22px 20px 20px;
+      box-shadow:0 18px 36px rgba(72,177,209,.22);
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      right:-30px;
+      bottom:-40px;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:rgba(255,255,255,.13);
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 11px;
+      border-radius:999px;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.28);
+      font-size:.88rem;
+      font-weight:700;
+      backdrop-filter:blur(8px);
+    }
+
+    h1{
+      margin:12px 0 8px;
+      font-size:clamp(24px, 6.5vw, 32px);
+      line-height:1.28;
+      letter-spacing:.02em;
+    }
+
+    .lead{
+      margin:0;
+      color:rgba(255,255,255,.95);
+      font-size:.98rem;
+    }
+
+    .hero-mini{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .mini-card{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.24);
+      border-radius:18px;
+      padding:12px 13px;
+      backdrop-filter:blur(8px);
+    }
+
+    .mini-card strong{
+      display:block;
+      font-size:.92rem;
+      margin-bottom:2px;
+    }
+
+    .cta{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .btn{
+      display:block;
+      text-align:center;
+      text-decoration:none;
+      padding:13px 14px;
+      border-radius:14px;
+      font-weight:800;
+      border:1px solid transparent;
+    }
+
+    .btn.primary{
+      background:#fff;
+      color:#1f89aa;
+      box-shadow:0 6px 16px rgba(255,255,255,.22);
+    }
+
+    .btn.ghost{
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      border-color:rgba(255,255,255,.28);
+    }
+
+    .sec-kicker{
+      color:#38a7c7;
+      font-size:.88rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      margin:12px 4px 4px;
+    }
+
+    .sec-title{
+      margin:0 4px 10px;
+      font-size:1.18rem;
+      font-weight:800;
+    }
+
+    .card{
+      background:rgba(255,255,255,.92);
+      border:1px solid #e2f2f7;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .tl{
+      position:relative;
+      padding-left:18px;
+      margin:10px 0;
+    }
+
+    .tl:before{
+      content:"";
+      position:absolute;
+      left:8px;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:linear-gradient(#48c2db, transparent);
+    }
+
+    .dot{
+      position:absolute;
+      left:1px;
+      top:4px;
+      width:15px;
+      height:15px;
+      border-radius:999px;
+      background:#48c2db;
+      box-shadow:0 0 0 6px rgba(72,194,219,.16);
+    }
+
+    .timeline-card{
+      padding:14px 15px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:7px 0 5px;
+    }
+
+    .tag{
+      font-size:.84rem;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#f3fbfd;
+      border:1px solid #d9eef4;
+      color:#2f8faa;
+      font-weight:700;
+    }
+
+    .muted{color:var(--muted)}
+
+    .grid{
+      display:grid;
+      gap:12px;
+    }
+
+    .thumb{
+      aspect-ratio:16/10;
+      background:
+        linear-gradient(135deg, rgba(139,224,239,.55), rgba(255,217,168,.55)),
+        url('images/placeholder-guam.jpg') center/cover no-repeat;
+      border-bottom:1px solid #e5f2f6;
+    }
+
+    .card-body{padding:14px}
+
+    .card h3{
+      margin:.2rem 0 .3rem;
+      font-size:1.06rem;
+      color:#237c9c;
+    }
+
+    .hotel-highlight{
+      background:linear-gradient(180deg,#ffffff 0%, #f7fdff 100%);
+      padding:16px;
+    }
+
+    .hotel-name{
+      font-size:1.18rem;
+      font-weight:800;
+      color:#187ea0;
+      margin-bottom:6px;
+    }
+
+    .info-list{
+      display:grid;
+      gap:8px;
+      margin-top:8px;
+    }
+
+    .info-item{
+      padding:10px 12px;
+      border-radius:14px;
+      background:#f7fcfe;
+      border:1px solid #e1f0f5;
+      font-size:.95rem;
+    }
+
+    .checklist{
+      list-style:none;
+      padding:0;
+      margin:8px 0 0;
+    }
+
+    .checklist li{
+      padding:8px 0;
+      border-bottom:1px dashed #dceef4;
+      font-weight:600;
+      color:#3e6672;
+    }
+
+    .checklist li:last-child{border-bottom:none}
+
+    .bottom{
+      position:sticky;
+      bottom:0;
+      z-index:60;
+      margin-top:18px;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+      border-top:1px solid var(--line);
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    }
+
+    .bottom .row{
+      display:flex;
+      gap:10px;
+    }
+
+    .bottom a{
+      flex:1;
+      text-align:center;
+      text-decoration:none;
+      font-weight:800;
+      color:#2286a8;
+      background:#fff;
+      border:1px solid #dbeef4;
+      border-radius:13px;
+      padding:12px;
+      box-shadow:0 6px 14px rgba(55,183,214,.06);
+    }
+
+    #plan,#hotel,#spots,#notes{scroll-margin-top:92px}
+    h1,h2,h3,p,strong,small,a,li{overflow-wrap:anywhere}
+
+    @media (min-width:560px){
+      .hero-mini{grid-template-columns:1fr 1fr}
+      .grid.two{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <div class="top">
+      <div class="brand">🌴 Guam Trip 4/19–4/21</div>
+      <div class="tabs">
+        <a href="#plan">日程</a>
+        <a href="#hotel">ホテル</a>
+        <a href="#spots">やりたいこと</a>
+        <a href="#notes">持ち物</a>
+      </div>
+    </div>
+
+    <section>
+      <div class="hero">
+        <span class="chip">🏝️ 2泊3日 リゾート旅</span>
+        <h1>グアム 旅のしおり<br>4/19 – 4/21</h1>
+        <p class="lead">
+          海・プール・ホテル時間をたっぷり楽しむグアム旅。<br>
+          宿泊は <strong>ロッテグアムホテル</strong>。
+        </p>
+
+        <div class="hero-mini">
+          <div class="mini-card">
+            <strong>📍 STAY</strong>
+            ロッテグアムホテル
+          </div>
+
+          <div class="mini-card">
+            <strong>📅 DATE</strong>
+            4月19日〜4月21日
+          </div>
+
+          <div class="mini-card">
+            <strong>✈️ 行き</strong>
+            4/19 11:00 成田空港（ターミナル1）発<br>
+            UA827 → 15:40 グアム着
+          </div>
+
+          <div class="mini-card">
+            <strong>✈️ 帰り</strong>
+            4/21 12:55 グアム発<br>
+            UA864 → 15:55 東京着
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#plan">日程を見る</a>
+          <a class="btn ghost" href="#hotel">ホテルを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan">
+      <div class="sec-kicker">SCHEDULE</div>
+      <h2 class="sec-title">旅のスケジュール</h2>
+
+      <div class="tl">
+        <span class="dot"></span>
+        <div class="card timeline-card">
+          <strong>1日目（4/19）｜出発 → 到着 → ホテルへ</strong>
+          <div class="tags">
+            <span class="tag">#成田空港</span>
+            <span class="tag">#UA827</span>
+            <span class="tag">#チェックイン</span>
+          </div>
+          <p class="muted">
+            🕚 11:00 成田空港（ターミナル1）出発（UA827）<br>
+            🕒 15:40 グアム国際空港 到着<br>
+            🚕 ホテルへ移動 → チェックイン（ロッテグアム）<br>
+            🌴 周辺をゆるく散策、海や夜の雰囲気を楽しむ
+          </p>
+        </div>
+      </div>
+
+      <div class="tl">
+        <span class="dot"></span>
+        <div class="card timeline-card">
+          <strong>2日目（4/20）｜プール・海・グアムらしい時間</strong>
+          <div class="tags">
+            <span class="tag">#プール</span>
+            <span class="tag">#ビーチ</span>
+            <span class="tag">#グルメ</span>
+          </div>
+          <p class="muted">
+            朝は少しゆっくりしてもOK。<br>
+            ホテルのプールやビーチで南国感を満喫。<br>
+            おいしい朝ごはん、ハンバーガー、景色のいい場所も回収したいメイン日。
+          </p>
+        </div>
+      </div>
+
+      <div class="tl">
+        <span class="dot"></span>
+        <div class="card timeline-card">
+          <strong>3日目（4/21）｜最後に少し満喫 → 帰国</strong>
+          <div class="tags">
+            <span class="tag">#最終日</span>
+            <span class="tag">#UA864</span>
+            <span class="tag">#帰国</span>
+          </div>
+          <p class="muted">
+            朝ごはんや最後の写真を回収してから空港へ。<br>
+            🕛 12:55 グアム出発（UA864）<br>
+            🕒 15:55 東京到着<br>
+            ✈️ 忘れ物チェックして余裕をもって移動
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hotel">
+      <div class="sec-kicker">HOTEL</div>
+      <h2 class="sec-title">宿泊先</h2>
+
+      <div class="card hotel-highlight">
+        <div class="hotel-name">ロッテグアムホテル</div>
+        <p class="muted">
+          今回の旅の拠点。海が近くて、ホテル時間もちゃんと楽しみたい旅にぴったり。
+        </p>
+
+        <div class="info-list">
+          <div class="info-item">📍 宿泊先：ロッテグアムホテル</div>
+          <div class="info-item">🗓️ 宿泊日程：4/19〜4/21</div>
+          <div class="info-item">🏝️ 旅行テーマ：ゆるく贅沢に、南国を楽しむ</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+          <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=lotte+guam+hotel" target="_blank" rel="noopener">マップで見る</a>
+          <a class="btn" style="background:#eefaff;color:#1f88a8;border:1px solid #d7edf4;" href="https://www.lottehotel.com/guam-hotel/ja.html" target="_blank" rel="noopener">公式サイト</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="spots">
+      <div class="sec-kicker">TO DO IN GUAM</div>
+      <h2 class="sec-title">グアムでやりたいこと</h2>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="thumb"></div>
+          <div class="card-body">
+            <h3>ホテルのプールに行く</h3>
+            <p class="muted">
+              グアム来た感が一番出るやつ。写真もいっぱい撮りたい。
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"></div>
+          <div class="card-body">
+            <h3>海を見る・歩く</h3>
+            <p class="muted">
+              何もしない時間も込みで楽しむ。南国の空気を浴びる時間。
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"></div>
+          <div class="card-body">
+            <h3>おいしい朝ごはんを食べる</h3>
+            <p class="muted">
+              アサイー系や南国っぽい朝ごはんも気になる。
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"></div>
+          <div class="card-body">
+            <h3>ハンバーガーを食べる</h3>
+            <p class="muted">
+              グアムっぽいジャンキーさも旅の楽しみのひとつ。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="notes">
+      <div class="sec-kicker">NOTES</div>
+      <h2 class="sec-title">持ち物 & メモ</h2>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="card-body">
+            <h3>持ち物リスト</h3>
+            <ul class="checklist">
+              <li>パスポート</li>
+              <li>財布・クレカ</li>
+              <li>スマホ充電器・モバイルバッテリー</li>
+              <li>水着</li>
+              <li>サンダル</li>
+              <li>日焼け止め</li>
+              <li>帽子 or サングラス</li>
+              <li>スキンケア・メイク用品</li>
+              <li>着替え・部屋着</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h3>旅メモ</h3>
+            <p class="muted">
+              ・ホテル時間もちゃんと楽しむ旅にする<br>
+              ・最終日は空港時間を逆算して動く<br>
+              ・写真を撮りたい場所は先に決めておくと◎
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom">
+      <div class="row">
+        <a href="#plan">日程</a>
+        <a href="#hotel">ホテル</a>
+        <a href="#spots">やりたいこと</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
